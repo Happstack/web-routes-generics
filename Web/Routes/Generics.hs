@@ -7,11 +7,6 @@ import Text.ParserCombinators.Parsec.Prim
 import Text.ParserCombinators.Parsec.Combinator
 import Web.Routes.PathInfo (PathInfo(fromPathSegments, toPathSegments), URLParser, segment)
 
-data Path
- = Foo
- | Bar Int Int
-   deriving (Show, Generic)
-
 class GToURL f where
   gtoPathSegments :: f a -> [Text]
   gfromPathSegments :: URLParser (f a)
@@ -50,7 +45,3 @@ instance (PathInfo a) => GToURL (K1 i a) where
 instance (GToURL f) => GToURL (S1 c f) where
   gtoPathSegments (M1 f) = gtoPathSegments f
   gfromPathSegments = M1 <$> gfromPathSegments
-
-instance PathInfo Path where
-  toPathSegments = gtoPathSegments . from
-  fromPathSegments = fmap to gfromPathSegments
