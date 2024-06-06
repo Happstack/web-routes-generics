@@ -4,7 +4,7 @@ License:          BSD3
 License-File:     LICENSE
 Author:           jeremy@seereason.com
 Maintainer:       partners@seereason.com
-Bug-Reports:      http://bugzilla.seereason.com/
+Bug-Reports:      https://github.com/Happstack/web-routes-generics/issues
 Category:         Web, Language
 Synopsis:         portable, type-safe URL routing
 Description:      This library adds support for parsing/printing URLs using the generics library
